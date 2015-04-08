@@ -5,11 +5,8 @@ import java.time.LocalTime;
 public class Tester {
 
 	public static void main(String[] args) {
-
-        LocalTime time = LocalTime.now();
-        TimeGenerator tg = new TimeGenerator(time.getHour(), time.getMinute());
-        System.out.println(tg);
-    }
-
+		TimeGenerator tg = new TimeGenerator(LocalTime.now());
+		System.out.println(tg);
+	}
 
 }
