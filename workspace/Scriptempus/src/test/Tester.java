@@ -1,20 +1,14 @@
 package test;
 
-import java.time.Clock;
-import java.time.Instant;
+import java.time.LocalTime;
 
 public class Tester {
 
 	public static void main(String[] args) {
 
-        TimeGenerator tg = new TimeGenerator(0, 0);
-
-        for (int i = 0; i < 24; i++) { 
-            for (int j = 0; j < 59; j+=5) {
-            	tg = new TimeGenerator(i, j);
-                System.out.println(i + ":" + j + " -> " + tg);
-            }
-        }
+        LocalTime time = LocalTime.now();
+        TimeGenerator tg = new TimeGenerator(time.getHour(), time.getMinute());
+        System.out.println(tg);
     }
 
 
