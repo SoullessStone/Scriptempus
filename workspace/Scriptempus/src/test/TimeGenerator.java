@@ -11,10 +11,11 @@ public class TimeGenerator {
         setValues(hour, minutes);
     }
 
+    
     public void setValues(int hour, int minutes) {
-        this.hour = hour;
         minutes = roundToNearestFive(minutes).intValue();
 
+        this.hour = hour;
         if (minutes > 27)
             this.minutes = minutes - 30;
         else
@@ -22,32 +23,28 @@ public class TimeGenerator {
         
         if ((minutes > 32 && minutes < 38) || (minutes < 23 && minutes > 2))
             this.past = true;
+        
         if (minutes > 22 && minutes < 28) {
             this.minutes = 5;
             this.before = true;
         }
-        if (minutes > 22)
-        {
-            if (this.hour == 12 || this.hour == 0)
-                this.hour = 1;
-            else if (this.hour > 12)
-                this.hour = this.hour - 11;
-            else
-                this.hour++;
-        }else{
-            if (this.hour == 12 || this.hour == 0)
-                this.hour = 0;
-            else
-                this.hour = this.hour - 11;
-        }
+        
         if (minutes > 37) {
             this.minutes = 30 - this.minutes;
             if (this.minutes > 0)
                 this.before = true;
         }
+        
         if (minutes > 22 && minutes < 38)
             this.half = true;
-
+        
+        if (minutes > 23)
+        	this.hour++;
+        if (this.hour>12)
+        	this.hour = this.hour-12;
+        if (this.hour == 0)
+        	this.hour = 12;
+        
     }
 
     public Double roundToNearestFive(int number) {
