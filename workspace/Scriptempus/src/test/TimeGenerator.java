@@ -45,7 +45,6 @@ public class TimeGenerator {
 			this.hour = this.hour - 12;
 		if (this.hour == 0)
 			this.hour = 12;
-
 	}
 
 	public Double roundToNearestFive(int number) {
